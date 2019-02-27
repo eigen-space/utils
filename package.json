@@ -1,0 +1,45 @@
+{
+    "name": "@eigenspace/core-web-utils",
+    "version": "1.2.7",
+    "private": false,
+    "scripts": {
+        "build": "webpack --config webpack.config.package.js --progress",
+        "lint": "tslint 'src/**/*.{ts,tsx}'",
+        "test": "jest",
+        "build:publish": "yarn lint && yarn test && yarn build && npm publish dist --access public",
+        "hooks:pre-commit": "yarn test && lint-staged"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn hooks:pre-commit"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "yarn lint"
+        ]
+    },
+    "devDependencies": {
+        "@eigenspace/codestyle": "1.1.11",
+        "@types/jest": "24.0.3",
+        "clean-webpack-plugin": "1.0.1",
+        "copy-webpack-plugin": "4.6.0",
+        "dts-bundle": "https://github.com/Danilqa/dts-bundle.git#build",
+        "husky": "1.3.1",
+        "jest": "23.6.0",
+        "lint-staged": "8.1.3",
+        "ts-jest": "23.10.5",
+        "ts-loader": "5.3.3",
+        "tslint": "5.12.1",
+        "typescript": "3.3.3",
+        "webpack": "4.29.3",
+        "webpack-cli": "3.2.3"
+    },
+    "main": "index.js",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eigen-space/core-web-utils.git"
+    },
+    "license": "MIT"
+}

@@ -1,0 +1,19 @@
+{
+    "extends": "@eigenspace/codestyle/base.tsconfig.json",
+    "compilerOptions": {
+        "sourceMap": false,
+        "moduleResolution": "node",
+        "outDir": "dist/types",
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "include": [
+        "src",
+        "config"
+    ],
+    "exclude": [
+        "**/*.spec.ts",
+        "**/*.d.ts"
+    ]
+}
