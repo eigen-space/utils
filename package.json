@@ -1,5 +1,5 @@
 {
-    "name": "@eigenspace/core-web-utils",
+    "name": "@eigenspace/utils",
     "version": "1.2.7",
     "private": false,
     "scripts": {
