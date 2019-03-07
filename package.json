@@ -7,7 +7,8 @@
         "lint": "tslint 'src/**/*.{ts,tsx}'",
         "test": "jest",
         "build:publish": "yarn lint && yarn test && yarn build && npm publish dist --access public",
-        "hooks:pre-commit": "yarn test && lint-staged"
+        "hooks:pre-commit": "yarn test && lint-staged",
+        "script:update-deps": "node node_modules/@eigenspace/helper-scripts/scripts/project/update-deps.js"
     },
     "husky": {
         "hooks": {
@@ -20,7 +21,8 @@
         ]
     },
     "devDependencies": {
-        "@eigenspace/codestyle": "1.1.13",
+        "@eigenspace/codestyle": "latest",
+        "@eigenspace/helper-scripts": "1.0.44",
         "@types/jest": "24.0.3",
         "clean-webpack-plugin": "1.0.1",
         "copy-webpack-plugin": "4.6.0",
