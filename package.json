@@ -6,7 +6,7 @@
         "build": "webpack --config webpack.config.package.js --progress",
         "lint": "tslint 'src/**/*.{ts,tsx}'",
         "test": "jest",
-        "build:publish": "yarn lint && yarn test && yarn build && npm publish dist --access public",
+        "deploy:publish": "yarn lint && yarn test && yarn build && node node_modules/@eigenspace/helper-scripts/scripts/ci/publish.js",
         "hooks:pre-commit": "yarn test && lint-staged",
         "script:update-deps": "node node_modules/@eigenspace/helper-scripts/scripts/project/update-deps.js"
     },
