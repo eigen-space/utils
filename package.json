@@ -3,7 +3,8 @@
     "version": "1.2.8",
     "private": false,
     "scripts": {
-        "build": "webpack --config webpack.config.package.js --progress",
+        "build": "webpack --config webpack.config.package.js --progress && yarn bundle-dts",
+        "bundle-dts": "node node_modules/@eigenspace/helper-scripts/scripts/project/bundle-dts.js",
         "lint": "tslint 'src/**/*.{ts,tsx}'",
         "test": "jest",
         "deploy:publish": "yarn lint && yarn test && yarn build && node node_modules/@eigenspace/helper-scripts/scripts/ci/publish.js",
@@ -22,7 +23,7 @@
     },
     "devDependencies": {
         "@eigenspace/codestyle": "latest",
-        "@eigenspace/helper-scripts": "1.0.44",
+        "@eigenspace/helper-scripts": "1.0.45",
         "@types/jest": "24.0.3",
         "clean-webpack-plugin": "1.0.1",
         "copy-webpack-plugin": "4.6.0",
