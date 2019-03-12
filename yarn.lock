@@ -26,9 +26,10 @@
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.15.tgz#90ec0f159086a824b5c6d59f306a878c6a2c1540"
 
-"@eigenspace/helper-scripts@1.0.45":
-  version "1.0.45"
-  resolved "https://registry.yarnpkg.com/@eigenspace/helper-scripts/-/helper-scripts-1.0.45.tgz#01086f3e221881c51cd8f27e92bbaf459e91461e"
+"@eigenspace/helper-scripts@1.0.46":
+  version "1.0.46"
+  resolved "https://registry.yarnpkg.com/@eigenspace/helper-scripts/-/helper-scripts-1.0.46.tgz#fbe4efb15c0cd318a02d8a79d6fbd44cff135490"
+  integrity sha512-gMiU9Q1g7MRfhovi/ARWAM/PGalnAwVAlCFtaicPWvDRVdj1haC7wZXRLbfnAafy1mBgYiGhi+f2DNd1r/U+zQ==
   dependencies:
     minimist "1.2.0"
 
