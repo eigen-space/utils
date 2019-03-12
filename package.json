@@ -7,7 +7,7 @@
         "bundle-dts": "node node_modules/@eigenspace/helper-scripts/scripts/project/bundle-dts.js",
         "lint": "tslint 'src/**/*.{ts,tsx}'",
         "test": "jest",
-        "deploy:publish": "yarn lint && yarn test && yarn build && node node_modules/@eigenspace/helper-scripts/scripts/ci/publish.js",
+        "deploy:publish": "node node_modules/@eigenspace/helper-scripts/scripts/ci/publish.js",
         "hooks:pre-commit": "yarn test && lint-staged",
         "script:update-deps": "node node_modules/@eigenspace/helper-scripts/scripts/project/update-deps.js"
     },
