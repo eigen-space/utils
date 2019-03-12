@@ -3,7 +3,6 @@ node_js:
   - "11.10"
 git:
   depth: false
-# node_modules cache
 cache:
   directories:
     - node_modules
@@ -13,10 +12,8 @@ script:
   - git remote set-url origin https://sergeevNick:$GITHUB_API_KEY@github.com/eigen-space/utils.git
   - chmod +x ./node_modules/@eigenspace/helper-scripts/scripts/ci/detect-autocommit.sh
   - if ./node_modules/@eigenspace/helper-scripts/scripts/ci/detect-autocommit.sh ; then
-    npm run lint;
-    npm run test;
-    npm run build;
-    ls;
-    ls dist;
-    npm run deploy:publish;
+    yarn lint;
+    yarn test;
+    yarn build;
+    yarn deploy:publish;
     fi
