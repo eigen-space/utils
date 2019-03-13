@@ -5,7 +5,7 @@
     "scripts": {
         "build": "webpack --config webpack.config.package.js --progress && yarn bundle-dts",
         "bundle-dts": "node node_modules/@eigenspace/helper-scripts/scripts/project/bundle-dts.js",
-        "lint": "tslint 'src/**/*.{ts,tsx}'",
+        "lint": "tslint --project tsconfig.json",
         "test": "jest",
         "deploy:publish": "node node_modules/@eigenspace/helper-scripts/scripts/ci/publish.js",
         "hooks:pre-commit": "yarn test && lint-staged",
