@@ -25,6 +25,7 @@
         "@eigenspace/codestyle": "latest",
         "@eigenspace/helper-scripts": "1.0.46",
         "@types/jest": "24.0.3",
+        "@types/node": "11.9.5",
         "clean-webpack-plugin": "1.0.1",
         "copy-webpack-plugin": "4.6.0",
         "husky": "1.3.1",
