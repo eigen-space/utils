@@ -15,5 +15,6 @@ script:
     yarn lint;
     yarn test;
     yarn build;
+    ls;
     npm run deploy:publish;
     fi
