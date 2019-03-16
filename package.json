@@ -1,13 +1,15 @@
 {
     "name": "@eigenspace/utils",
-    "version": "1.2.7",
+    "version": "1.2.17",
     "private": false,
     "scripts": {
-        "build": "webpack --config webpack.config.package.js --progress",
+        "build": "webpack --config webpack.config.package.js --progress && yarn bundle-dts",
+        "bundle-dts": "node node_modules/@eigenspace/helper-scripts/scripts/project/bundle-dts.js",
         "lint": "tslint 'src/**/*.{ts,tsx}'",
         "test": "jest",
-        "build:publish": "yarn lint && yarn test && yarn build && npm publish dist --access public",
-        "hooks:pre-commit": "yarn test && lint-staged"
+        "deploy:publish": "node node_modules/@eigenspace/helper-scripts/scripts/ci/publish.js",
+        "hooks:pre-commit": "yarn test && lint-staged",
+        "script:update-deps": "node node_modules/@eigenspace/helper-scripts/scripts/project/update-deps.js"
     },
     "husky": {
         "hooks": {
@@ -20,11 +22,12 @@
         ]
     },
     "devDependencies": {
-        "@eigenspace/codestyle": "1.1.13",
+        "@eigenspace/codestyle": "latest",
+        "@eigenspace/helper-scripts": "1.0.46",
         "@types/jest": "24.0.3",
+        "@types/node": "11.9.5",
         "clean-webpack-plugin": "1.0.1",
         "copy-webpack-plugin": "4.6.0",
-        "dts-bundle": "https://github.com/Danilqa/dts-bundle.git#build",
         "husky": "1.3.1",
         "jest": "23.6.0",
         "lint-staged": "8.1.3",
