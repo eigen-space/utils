@@ -35,4 +35,27 @@ export class CommonUtils {
             timer = setTimeout(() => method(...args), deadTime);
         };
     }
+
+    /**
+     * Returns the new object without the functions.
+     *
+     * The target use case:
+     * In React we need to pass properties to styled component (e.g. div) for
+     * apply some style depended on properties. Props may contain the handlers
+     * like: onValueChange and it will be rendered as <div onValueChange={...}/>.
+     * React will tell us about it with error: Unknown event handler property.
+     *
+     * @param props
+     */
+    static getNotInvokable(props: Dictionary): Dictionary {
+        if (!props) {
+            return props;
+        }
+
+        return Object.keys(props)
+            .reduce((result, key) => {
+                const isFunction = typeof props[key] === 'function';
+                return isFunction ? result : { ...result, [key]: props[key] };
+            }, {});
+    }
 }
