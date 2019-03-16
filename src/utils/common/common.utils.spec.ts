@@ -1,4 +1,6 @@
+/* tslint:disable:comment-type no-any */
 import { CommonUtils } from './common.utils';
+import { Dictionary } from '../../common/types/dictionary';
 
 describe('CommonUtils', () => {
 
@@ -90,6 +92,34 @@ describe('CommonUtils', () => {
                 expect(request).toHaveBeenCalledWith('2');
                 done();
             }, timeoutTime);
+        });
+    });
+
+    describe('#getNotInvokable', () => {
+        let props: Dictionary;
+
+        beforeEach(() => {
+            // noinspection JSUnusedGlobalSymbols
+            props = { onSuccess: () => {}, onError: () => {} };
+        });
+
+        it('should return the same as passed if input data is not valid', () => {
+            expect(CommonUtils.getNotInvokable(null as any)).toEqual(null);
+        });
+
+        it('should return empty object if all properties are functions', () => {
+            expect(CommonUtils.getNotInvokable(props)).toEqual({});
+        });
+
+        it('should return filtered not-functional properties', () => {
+            const dataProps = {
+                data: { value: 12 },
+                isFullWidth: false,
+                rows: 3,
+                title: 'BMW'
+            };
+            props = { ...props, ...dataProps };
+            expect(CommonUtils.getNotInvokable(props)).toEqual(dataProps);
         });
     });
 });
