@@ -37,7 +37,7 @@ export class CommonUtils {
     }
 
     /**
-     * Returns the new object without the functions.
+     * Returns the new object without functions.
      *
      * The target use case:
      * In React we need to pass properties to styled component (e.g. div) for
