@@ -47,15 +47,17 @@ export class CommonUtils {
      *
      * @param props
      */
-    static getNotInvokable(props: Dictionary): Dictionary {
+    static getNotInvokable<T = Dictionary>(props: T): T {
         if (!props) {
             return props;
         }
 
         return Object.keys(props)
-            .reduce((result, key) => {
+            .reduce((result: T, key: string) => {
+                // @ts-ignore
                 const isFunction = typeof props[key] === 'function';
+                // @ts-ignore
                 return isFunction ? result : { ...result, [key]: props[key] };
-            }, {});
+            }, {} as T);
     }
 }
