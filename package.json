@@ -8,12 +8,12 @@
         "lint": "tslint --project tsconfig.json",
         "test": "jest",
         "deploy:publish": "node node_modules/@eigenspace/helper-scripts/scripts/ci/publish.js",
-        "hooks:pre-commit": "yarn lint && yarn test",
+        "hooks:pre-push": "yarn lint && yarn test",
         "script:update-deps": "node node_modules/@eigenspace/helper-scripts/scripts/project/update-deps.js"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn hooks:pre-commit"
+            "pre-push": "yarn hooks:pre-push"
         }
     },
     "devDependencies": {
