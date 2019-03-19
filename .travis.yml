@@ -12,8 +12,8 @@ script:
   - git remote set-url origin https://sergeevNick:$GITHUB_API_KEY@github.com/eigen-space/utils.git
   - chmod +x ./node_modules/@eigenspace/helper-scripts/scripts/ci/detect-autocommit.sh
   - if ./node_modules/@eigenspace/helper-scripts/scripts/ci/detect-autocommit.sh ; then
-    yarn lint;
-    yarn test;
-    yarn build;
-    npm run deploy:publish;
+      yarn lint &&
+      yarn test &&
+      yarn build &&
+      npm run deploy:publish;
     fi
