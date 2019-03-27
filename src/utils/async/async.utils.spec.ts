@@ -29,7 +29,6 @@ describe('AsyncUtils', () => {
             debouncedFunc('2');
 
             const timeoutTime = 200;
-
             setTimeout(() => {
                 debouncedFunc('3');
                 debouncedFunc('4');
