@@ -1,6 +1,6 @@
 {
     "name": "@eigenspace/utils",
-    "version": "1.2.27",
+    "version": "1.2.28",
     "private": false,
     "scripts": {
         "build": "webpack --config webpack.config.package.js --progress && yarn bundle-dts",
