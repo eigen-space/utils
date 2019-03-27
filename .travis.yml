@@ -18,4 +18,8 @@ script:
       npm run deploy:publish;
     fi
 notifications:
-  slack: eigenspaceworkspace:kmQErenC9R4KA4kWyb1j8UaS
+  slack:
+    rooms:
+      - eigenspaceworkspace:kmQErenC9R4KA4kWyb1j8UaS#ci
+    on_success: change
+    on_failure: always
