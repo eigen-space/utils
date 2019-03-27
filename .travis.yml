@@ -17,3 +17,5 @@ script:
     yarn build;
     npm run deploy:publish;
     fi
+notifications:
+  slack: eigenspaceworkspace:kmQErenC9R4KA4kWyb1j8UaS
