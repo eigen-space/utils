@@ -18,7 +18,7 @@ describe('AsyncUtils', () => {
                 done();
             }, timeoutTime);
 
-            expect(request).toBeCalled();
+            expect(request).not.toBeCalled();
         });
 
         it('should do request after bounce time is over after last request', done => {
@@ -28,7 +28,7 @@ describe('AsyncUtils', () => {
             debouncedFunc('1');
             debouncedFunc('2');
 
-            const timeoutTime = 300;
+            const timeoutTime = 200;
             setTimeout(() => {
                 debouncedFunc('3');
                 debouncedFunc('4');
