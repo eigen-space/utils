@@ -18,7 +18,7 @@ describe('AsyncUtils', () => {
                 done();
             }, timeoutTime);
 
-            expect(request).toBeCalled();
+            expect(request).not.toBeCalled();
         });
 
         it('should do request after bounce time is over after last request', done => {
