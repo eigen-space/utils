@@ -1,4 +1,4 @@
-# Core web utils
+# Core web utils [![Build Status](https://travis-ci.com/eigen-space/utils.svg?branch=master)](https://travis-ci.com/eigen-space/utils)
 
 Package that contains helpful utils for developing projects.
 
