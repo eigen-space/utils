@@ -17,8 +17,9 @@
     js-tokens "^4.0.0"
 
 "@eigenspace/codestyle@latest":
-  version "1.1.17"
-  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.17.tgz#f555f701c98916a25dfd49cd3ff80fcf207749b1"
+  version "1.1.46"
+  resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.46.tgz#92a9b9e8f3ffaec42d6019a824ea6cba264468c2"
+  integrity sha512-abYXW1bIQF6rCONlKTxS532PftXavdluimM/EnxKEb+EsWXXjSCAFFaWJZdjcpJb4Q3MJ2v8Gs9mQb0aA4ZHhg==
 
 "@eigenspace/helper-scripts@1.0.46":
   version "1.0.46"
