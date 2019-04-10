@@ -39,3 +39,21 @@ Project should adhere to this structure:
     README.md
     <other root configuration files> - for example, jest.config.ts, .gitignore, ...                                             
 ```
+
+# Why do we have that dev dependencies?
+
+* `@eigenspace/codestyle` - includes tslint rules, config for typescript.
+* `@eigenspace/helper-scripts` - common scripts for dev. environment.
+* `@types/*` - contains type definitions for specific library.
+* `jest` - testing framework to write unit specs (including snapshots).
+* `ts-jest` - it lets you use Jest to test projects written in TypeScript.
+* `ts-loader` - it is used to load typescript code with webpack. 
+* `tslint` - it checks TypeScript code for readability, maintainability, and functionality errors.
+* `typescript` - is a superset of JavaScript that have static type-checking and ECMAScript features.
+See `webpack.config.js`.
+* `webpack` - it create app bundle for dev mode and production. 
+* `copy-webpack-plugin` - used for copy package.json in package bundle.
+* `clean-webpack-plugin` - used for clean bundle before run building.
+* `husky` - used for configure git hooks.
+* `lint-staged` - used for configure linters against staged git files.
+* `webpack-cli` - command line interface dor webpack.

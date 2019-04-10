@@ -14,7 +14,7 @@ module.exports = {
         }
     },
     testMatch: [
-        '<rootDir>/src/**/?(*.)(spec).(ts|tsx)'
+        '<rootDir>/src/**/*.spec.(ts|tsx)'
     ],
     moduleFileExtensions: [
         'web.ts',
