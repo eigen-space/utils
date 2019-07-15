@@ -17,6 +17,8 @@ script:
       yarn build &&
       npm run deploy:publish;
     fi
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_ACCESS_TOKEN}" > .npmrc
 notifications:
   slack:
     rooms:
