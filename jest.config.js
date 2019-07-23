@@ -1,9 +1,9 @@
 module.exports = {
     // This configuration is used to defeat the problem:
-    //  jest-haste-map: @providesModule naming collision:
+    //  Jest-haste-map: @providesModule naming collision:
     //   Duplicate module name: @eigenspace/web-package-starter
     //   Paths: /Users/dsitdikov/Projects/web-package-starter/package.json
-    //   collides with /Users/dsitdikov/Projects/web-package-starter/dist/package.json
+    //  Collides with /Users/dsitdikov/Projects/web-package-starter/dist/package.json
     //  This warning is caused by a @providesModule declaration with the same name across two different files.
     modulePathIgnorePatterns: [
         '<rootDir>/dist/'
