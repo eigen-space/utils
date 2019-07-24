@@ -31,7 +31,7 @@ export class Logger {
      *
      * @param args Various array of arguments to log.
      */
-    // tslint:disable-next-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     log(...args: Array<any>): void {
         this.invoke('log', LoggingLevelType.DEBUG, ...args);
     }
@@ -41,7 +41,7 @@ export class Logger {
      *
      * @param args Various array of arguments to log.
      */
-    // tslint:disable-next-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     info(...args: Array<any>): void {
         this.invoke('info', LoggingLevelType.INFO, ...args);
     }
@@ -51,7 +51,7 @@ export class Logger {
      *
      * @param args Various array of arguments to log.
      */
-    // tslint:disable-next-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     warn(...args: Array<any>): void {
         this.invoke('warn', LoggingLevelType.WARNING, ...args);
     }
@@ -61,12 +61,12 @@ export class Logger {
      *
      * @param args Various array of arguments to log.
      */
-    // tslint:disable-next-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     error(...args: Array<any>): void {
         this.invoke('error', LoggingLevelType.ERROR, ...args);
     }
 
-    // tslint:disable-next-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private invoke(functionName: string, logLevel: LoggingLevelType, ...args: Array<any>): void {
         if (logLevel <= this.logLevel) {
             const basePrefix = this.basePrefix ? `[${this.basePrefix}]` : '';
@@ -84,7 +84,7 @@ export class Logger {
                 Array.prototype.splice.call(args, 0, 0, fullPrefix);
             }
 
-            // @ts-ignore
+            // eslint-disable-next-line no-console
             console[functionName](...args);
         }
     }
