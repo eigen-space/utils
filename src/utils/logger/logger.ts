@@ -84,6 +84,7 @@ export class Logger {
                 Array.prototype.splice.call(args, 0, 0, fullPrefix);
             }
 
+            // @ts-ignore
             // eslint-disable-next-line no-console
             console[functionName](...args);
         }
