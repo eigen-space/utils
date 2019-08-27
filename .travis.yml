@@ -11,6 +11,8 @@ script:
   - git checkout $TRAVIS_BRANCH
   - git remote set-url origin https://$USER:$GITHUB_API_KEY@github.com/eigen-space/utils.git
   - yarn lint && yarn test && yarn build && npm run deploy:publish;
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_ACCESS_TOKEN}" > .npmrc
 notifications:
   slack:
     rooms:
