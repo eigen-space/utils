@@ -1,4 +1,3 @@
-/* tslint:disable:comment-type no-any */
 import { CommonUtils } from './common.utils';
 import { Dictionary } from '../../common/types/dictionary';
 
@@ -51,7 +50,7 @@ describe('CommonUtils', () => {
 
         it('should do nothing if input parameter is not an object', () => {
             const origin = 'some value';
-            // tslint:disable-next-line:no-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const copy = CommonUtils.deepCopy(origin as any);
             expect(copy).toBe(origin);
         });
@@ -104,7 +103,7 @@ describe('CommonUtils', () => {
         });
 
         it('should return the same as passed if input data is not valid', () => {
-            expect(CommonUtils.getNotInvokable(null as any)).toEqual(null);
+            expect(CommonUtils.getNotInvokable(null)).toEqual(null);
         });
 
         it('should return empty object if all properties are functions', () => {
