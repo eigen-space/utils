@@ -79,6 +79,7 @@ export class Logger {
             const fullPrefix = `${basePrefix}${prefix}${timePrefix}${performancePrefix}`;
 
             if (typeof args[0] === 'string') {
+                // eslint-disable-next-line no-param-reassign
                 args[0] = `${fullPrefix} ${args[0]}`;
             } else {
                 Array.prototype.splice.call(args, 0, 0, fullPrefix);
