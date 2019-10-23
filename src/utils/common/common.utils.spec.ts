@@ -99,7 +99,12 @@ describe('CommonUtils', () => {
 
         beforeEach(() => {
             // noinspection JSUnusedGlobalSymbols
-            props = { onSuccess: () => {}, onError: () => {} };
+            props = {
+                onSuccess: () => {
+                },
+                onError: () => {
+                }
+            };
         });
 
         it('should return the same as passed if input data is not valid', () => {

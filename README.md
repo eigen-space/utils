@@ -32,6 +32,7 @@ Project should adhere to this structure:
 * `ts-jest` - it lets you use Jest to test projects written in TypeScript.
 * `ts-loader` - it is used to load typescript code with webpack. 
 * `eslint` - it checks code for readability, maintainability, and functionality errors.
+* `eslint-plugin-eigenspace-script` - includes set of script linting rules and configuration for them.
 * `typescript` - is a superset of JavaScript that have static type-checking and ECMAScript features.
 See `webpack.config.js`.
 * `webpack` - it create app bundle for dev mode and production. 

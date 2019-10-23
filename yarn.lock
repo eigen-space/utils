@@ -146,6 +146,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@eigenspace/argument-parser@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@eigenspace/argument-parser/-/argument-parser-1.0.2.tgz#dbb21937d1b88795398ff7d1d26d0f8742a0999b"
+  integrity sha512-LgHE7X/6F8zTsPNt62CvJSxBo/grXKpX6+4A9iVihkLdIvFJ8KVP6vJ1ekZS6Quov6dEBB5aKSN5Z08yTaBafg==
+
 "@eigenspace/codestyle@latest":
   version "1.1.64"
   resolved "https://registry.yarnpkg.com/@eigenspace/codestyle/-/codestyle-1.1.64.tgz#fded7dfe4bdaf790f4c975bd42269efa7c7062aa"
@@ -157,12 +162,12 @@
     eslint-plugin-unicorn "9.1.1"
     prettier "1.18.2"
 
-"@eigenspace/helper-scripts@1.0.61":
-  version "1.0.61"
-  resolved "https://registry.yarnpkg.com/@eigenspace/helper-scripts/-/helper-scripts-1.0.61.tgz#9bc5efd0108b975366d93ec6606bc9cdb0d34d6a"
-  integrity sha512-qo+AXi6pl103xjCa3Zq6FrdFRcmd8MN1wSpWoiFqJdKA1jUtUK0NXLYAt8dI5M7Dbs4mkki33+YHVXRval42NQ==
+"@eigenspace/helper-scripts@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@eigenspace/helper-scripts/-/helper-scripts-2.0.1.tgz#f7bb07f3abc43d9664ac0d48c109d22084d38fbc"
+  integrity sha512-ArAxJpwWm1igiBjQhaQj+W4hsDrO3ODpFHK4p45LLTkRbH7uhK85Qu4NO1EHjA5N2lGNeneNQVMA7RsQTJT6dw==
   dependencies:
-    minimist "1.2.0"
+    "@eigenspace/argument-parser" "1.0.2"
 
 "@jest/console@^24.7.1":
   version "24.7.1"
@@ -1796,6 +1801,13 @@ eslint-ast-utils@^1.0.0:
   dependencies:
     lodash.get "^4.4.2"
     lodash.zip "^4.2.0"
+
+eslint-plugin-eigenspace-script@latest:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-eigenspace-script/-/eslint-plugin-eigenspace-script-0.1.0.tgz#b046fdab50f279202561776a61d8a6efaffaa51c"
+  integrity sha512-cSnoFtYaPU0c3g/2AomYP8gucgJbfjplgHyJx12daabgnbj+FKlQ7NFtijEYefiHdnxYEgZn5gfS+Ga6hoB4+w==
+  dependencies:
+    eslint-plugin-unicorn "9.1.1"
 
 eslint-plugin-prettier@3.1.0:
   version "3.1.0"
@@ -3876,7 +3888,7 @@ minimist@0.0.8:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
-minimist@1.2.0, minimist@^1.1.1, minimist@^1.2.0:
+minimist@^1.1.1, minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
