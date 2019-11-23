@@ -1,6 +1,5 @@
 const ROUND_MINIMUM_VALUE = 0.000001;
-// TODO: change default value to 3
-const SIGNIFICANT_DIGITS = 6;
+const SIGNIFICANT_DIGITS = 3;
 
 export class NumberUtils {
     static roundBySignificantDigits(value: string | number, significantDigits = SIGNIFICANT_DIGITS): string | number {

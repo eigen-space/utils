@@ -1,5 +1,4 @@
 import { StringUtils } from './string.utils';
-import { AnyDictionary } from '@eigenspace/common-types';
 
 describe('StringUtils', () => {
 
@@ -84,33 +83,16 @@ describe('StringUtils', () => {
         });
     });
 
-    describe('#toBinary', () => {
-        (global as AnyDictionary).window = {
-            atob: () => decodeURI(
-                'PK%03%04%14%00%08%08%08%00%C3%8Dt%C2%B5L%00%00%00%00' +
-                '%00%00%00%00%00%00%00%00%0B%00%00%00_rels/.rels%C2%AD%C2%92'
-            )
-        };
-
-        it('should convert base 64 string (downloaded file) to byte array', () => {
-            const fileDataBase64 = 'UEsDBBQACAgIAM10tUwAAAAAAAAAAAAAAAALAAAAX3JlbHMvLnJlbHOtks';
-            expect(Array.from(StringUtils.toBinary(fileDataBase64).values())).toEqual([
-                80, 75, 3, 4, 20, 0, 8, 8, 8, 0, 205, 116, 181, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0,
-                95, 114, 101, 108, 115, 47, 46, 114, 101, 108, 115, 173, 146
-            ]);
-        });
-    });
-
     describe('#toKebabCase', () => {
 
         it('should convert upper snake case to kebab case', () => {
-            expect(StringUtils.toKebabCase('PLANE_CURRENT_TYPE')).toEqual('plane-current-type');
+            expect(StringUtils.underscoreToKebabCase('PLANE_CURRENT_TYPE')).toEqual('plane-current-type');
         });
 
         it('should return empty string if input is empty (null, undefined, empty string)', () => {
-            expect(StringUtils.toKebabCase(null as unknown as string)).toEqual('');
-            expect(StringUtils.toKebabCase(undefined as unknown as string)).toEqual('');
-            expect(StringUtils.toKebabCase('')).toEqual('');
+            expect(StringUtils.underscoreToKebabCase(null as unknown as string)).toEqual('');
+            expect(StringUtils.underscoreToKebabCase(undefined as unknown as string)).toEqual('');
+            expect(StringUtils.underscoreToKebabCase('')).toEqual('');
         });
     });
 
