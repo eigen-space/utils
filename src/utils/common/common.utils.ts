@@ -1,7 +1,7 @@
-import { Dictionary } from '../../common/types/dictionary';
 import Milliseconds = jest.Milliseconds;
 import Timer = NodeJS.Timer;
 import { FunctionWithAnyArguments } from '../../@types/function';
+import { AnyDictionary } from '@eigenspace/common-types';
 
 export class CommonUtils {
 
@@ -18,7 +18,7 @@ export class CommonUtils {
      * @param obj Object to copy.
      * @returns Deep copy of object without any origin types.
      */
-    static deepCopy(obj: Dictionary): Dictionary {
+    static deepCopy(obj: AnyDictionary): AnyDictionary {
         return typeof obj === 'object' ? JSON.parse(JSON.stringify(obj)) : obj;
     }
 
@@ -47,7 +47,7 @@ export class CommonUtils {
      *
      * @param props
      */
-    static getNotInvokable<T = Dictionary>(props: T): T {
+    static getNotInvokable<T = AnyDictionary>(props: T): T {
         if (!props) {
             return props;
         }

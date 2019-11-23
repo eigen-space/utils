@@ -1,4 +1,5 @@
 import { AsyncUtils } from './async.utils';
+import { performance } from 'perf_hooks';
 
 describe('AsyncUtils', () => {
 
@@ -37,6 +38,38 @@ describe('AsyncUtils', () => {
                 expect(request).toHaveBeenCalledWith('2');
                 done();
             }, timeoutTime);
+        });
+    });
+
+    describe('#executeByBatch', () => {
+        const args = [150, 200, 100, 40, 30];
+
+        function someAsyncService(ms: number): Promise<number> {
+            return new Promise(resolve => setTimeout(() => resolve(ms), ms));
+        }
+
+        it('should do async requests by batch and return result in the correct order', async () => {
+            const result = await AsyncUtils.executeByBatch<number>(someAsyncService, args, 2);
+            expect(result).toEqual(args);
+        });
+
+        it('should do nothing in no arguments in array is specified', async () => {
+            const result = await AsyncUtils.executeByBatch<number>(someAsyncService, [], 3);
+            expect(result).toEqual([]);
+        });
+
+        it('should do batch request faster than request in sequence', async () => {
+            const startSequenceTime = performance.now();
+            await AsyncUtils.executeByBatch<number>(someAsyncService, [], 1);
+            const endSequenceTime = performance.now();
+            const sequenceTime = endSequenceTime - startSequenceTime;
+
+            const startBatchTime = performance.now();
+            await AsyncUtils.executeByBatch<number>(someAsyncService, [], 3);
+            const endBatchTime = performance.now();
+            const batchTime = endBatchTime - startBatchTime;
+
+            expect(batchTime).toBeLessThan(sequenceTime);
         });
     });
 });
