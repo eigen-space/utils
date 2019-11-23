@@ -1,5 +1,5 @@
 import { CommonUtils } from './common.utils';
-import { Dictionary } from '../../common/types/dictionary';
+import { AnyDictionary } from '@eigenspace/common-types';
 
 describe('CommonUtils', () => {
 
@@ -95,7 +95,7 @@ describe('CommonUtils', () => {
     });
 
     describe('#getNotInvokable', () => {
-        let props: Dictionary;
+        let props: AnyDictionary;
 
         beforeEach(() => {
             // noinspection JSUnusedGlobalSymbols

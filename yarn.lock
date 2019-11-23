@@ -162,6 +162,11 @@
     eslint-plugin-unicorn "9.1.1"
     prettier "1.18.2"
 
+"@eigenspace/common-types@0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@eigenspace/common-types/-/common-types-0.0.20.tgz#29dba2c451ed9836fb13a13be4af30bcd82de44c"
+  integrity sha512-EjHVZbzsVoere4w5mc+aOUb9beTurI5OoBfUss/cL9foWPP8p7yVtpfIK4VKdY/IbugFbO+RgqNP5nLvAEekKQ==
+
 "@eigenspace/helper-scripts@2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@eigenspace/helper-scripts/-/helper-scripts-2.0.1.tgz#f7bb07f3abc43d9664ac0d48c109d22084d38fbc"

@@ -32,4 +32,8 @@ export class NumberUtils {
         shifted = Math.round(number / magnitude);
         return shifted * magnitude;
     }
+
+    static round(value: number, precision = 2): number {
+        return Number(value.toFixed(precision));
+    }
 }

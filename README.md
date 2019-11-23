@@ -27,6 +27,7 @@ Project should adhere to this structure:
 
 * `@eigenspace/codestyle` - includes lint rules, config for typescript.
 * `@eigenspace/helper-scripts` - common scripts for dev. environment.
+* `@eigenspace/common-types` - common types.
 * `@types/*` - contains type definitions for specific library.
 * `jest` - testing framework to write unit specs (including snapshots).
 * `ts-jest` - it lets you use Jest to test projects written in TypeScript.

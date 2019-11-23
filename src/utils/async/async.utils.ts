@@ -3,6 +3,24 @@ import { FunctionWithAnyArguments } from '../../@types/function';
 import { Milliseconds } from '../../@types/units';
 
 export class AsyncUtils {
+    private static BATCH_SIZE = 10;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    static async executeByBatch<T>(asyncFn: Function, args: any[], batchSize = AsyncUtils.BATCH_SIZE): Promise<T[]> {
+        const results: T[] = [];
+        for (let i = 0; i < args.length; i += batchSize) {
+
+            const batchRequest = [];
+            for (let j = i; j < i + batchSize && j < args.length; ++j) {
+                batchRequest.push(asyncFn(args[j]));
+            }
+
+            const batchResult = await Promise.all(batchRequest);
+            results.push(...batchResult);
+        }
+
+        return results;
+    }
 
     /**
      * Invoke Promise only after deadTime was end.
