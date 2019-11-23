@@ -42,17 +42,7 @@ export class StringUtils {
         return str.replace(new RegExp('(\\.[a-zA-Z])', 'g'), StringUtils.uppercaseSecondLetter);
     }
 
-    static toBinary(strBase64: string): Uint8Array {
-        const strDecoded = window.atob(strBase64);
-        const array = new Uint8Array(new ArrayBuffer(strDecoded.length));
-
-        for (let i = 0; i < strDecoded.length; i++) {
-            array[i] = strDecoded.charCodeAt(i);
-        }
-        return array;
-    }
-
-    static toKebabCase(str: string): string {
+    static underscoreToKebabCase(str: string): string {
         return (str || '').toLowerCase().replace(new RegExp('_', 'g'), '-');
     }
 
