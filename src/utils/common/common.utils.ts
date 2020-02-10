@@ -1,6 +1,3 @@
-import Milliseconds = jest.Milliseconds;
-import Timer = NodeJS.Timer;
-import { FunctionWithAnyArguments } from '../../@types/function';
 import { AnyDictionary } from '@eigenspace/common-types';
 
 export class CommonUtils {
@@ -20,20 +17,6 @@ export class CommonUtils {
      */
     static deepCopy(obj: AnyDictionary): AnyDictionary {
         return typeof obj === 'object' ? JSON.parse(JSON.stringify(obj)) : obj;
-    }
-
-    /**
-     * Invoke method only if it have been invoked more than dead time.
-     *
-     * @param method - function that will be call after dead time
-     * @param deadTime - milliseconds after which method function called
-     */
-    static debounce(method: FunctionWithAnyArguments, deadTime: Milliseconds): FunctionWithAnyArguments {
-        let timer: Timer;
-        return function (...args): void {
-            clearTimeout(timer);
-            timer = setTimeout(() => method(...args), deadTime);
-        };
     }
 
     /**
