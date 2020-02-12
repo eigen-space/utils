@@ -26,8 +26,8 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin('./dist/*'),
         new CopyWebpackPlugin([
-            { from: 'src/@types/function.d.ts', to: 'types/@types/function.d.ts' },
-            { from: 'src/@types/units.d.ts', to: 'types/@types/units.d.ts' },
+            { from: 'src/@types/function.d.ts', to: '@types/function.d.ts' },
+            { from: 'src/@types/units.d.ts', to: '@types/units.d.ts' },
             { from: 'package.json', to: 'package.json' },
             { from: 'README.md', to: 'README.md' }
         ])
