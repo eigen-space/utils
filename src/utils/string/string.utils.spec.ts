@@ -71,6 +71,35 @@ describe('StringUtils', () => {
         });
     });
 
+    describe('#kebabCaseToCamelCase', () => {
+
+        it('should convert kebab case string to lower camel case', () => {
+            expect(StringUtils.kebabCaseToCamelCase('attribute-entity-prop')).toEqual('attributeEntityProp');
+        });
+
+        it('should convert upper kebab case string to lower camel case', () => {
+            expect(StringUtils.kebabCaseToCamelCase('ATTRIBUTE-ENTITY-PROP')).toEqual('attributeEntityProp');
+        });
+
+        it('should convert to lower case one upper case word', () => {
+            expect(StringUtils.kebabCaseToCamelCase('ATTRIBUTE')).toEqual('attribute');
+        });
+
+        it('should not convert to lower case one upper case word if we disable it', () => {
+            expect(StringUtils.kebabCaseToCamelCase('PLAN', false)).toEqual('PLAN');
+        });
+
+        it('should return empty string if input is empty (null, undefined, empty string)', () => {
+            expect(StringUtils.kebabCaseToCamelCase(null as unknown as string)).toEqual('');
+            expect(StringUtils.kebabCaseToCamelCase(undefined as unknown as string)).toEqual('');
+            expect(StringUtils.kebabCaseToCamelCase('')).toEqual('');
+        });
+
+        it('should return input string as is if it does not contain kebabCaseToCamelCase', () => {
+            expect(StringUtils.kebabCaseToCamelCase('emergencyFields')).toEqual('emergencyFields');
+        });
+    });
+
     describe('#pointSeparatedToCamelCase', () => {
 
         it('should convert point separated string to camel case', () => {
