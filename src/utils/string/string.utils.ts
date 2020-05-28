@@ -38,6 +38,15 @@ export class StringUtils {
             .replace(new RegExp('_[a-z]', 'g'), StringUtils.uppercaseSecondLetter) : safeStr;
     }
 
+    static kebabCaseToCamelCase(str: string, shouldConvertUpperCase = true): string {
+        const safeStr = str || '';
+
+        const isKebabCase = safeStr.includes('-');
+        const shouldConvert = isKebabCase || shouldConvertUpperCase && new RegExp('^[A-Z0-9]+$', 'g').test(safeStr);
+        return shouldConvert ? safeStr.toLocaleLowerCase()
+            .replace(new RegExp('-[a-z]', 'g'), StringUtils.uppercaseSecondLetter) : safeStr;
+    }
+
     static pointSeparatedToCamelCase(str: string): string {
         return str.replace(new RegExp('(\\.[a-zA-Z])', 'g'), StringUtils.uppercaseSecondLetter);
     }
