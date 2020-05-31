@@ -4,6 +4,9 @@
  */
 import { AnyDictionary, Dictionary } from '@eigenspace/common-types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type DataType = any;
+
 export class ObjectUtils {
     /**
      * Makes deep merge of specified objects.
@@ -72,6 +75,7 @@ export class ObjectUtils {
      * Makes silly copy of object, so we loose type of object and it is nested objects.
      *
      * @param obj Object to copy.
+     * @param obj Object to copy.
      * @returns Deep copy of object without any origin types.
      */
     // TODO: type mess, here should be any type
@@ -105,5 +109,34 @@ export class ObjectUtils {
         }
 
         return verifiedList.filter(item => ObjectUtils.flatMatch(item, verifiedRules));
+    }
+
+    /**
+     * Recursively converts each field of object into desired convection.
+     * Applies replacer function to each field of passed object.
+     *
+     * @param data Object.
+     * @param replacer Function to convert string.
+     * @returns Object with replaced fields.
+     */
+    static convertObjectKeys(data: DataType, replacer: (key: string) => string): DataType {
+        if (!Boolean(data) || typeof data !== 'object') {
+            return data;
+        }
+
+        const isArray = Array.isArray(data);
+        const processedData = isArray ? [] : {} as AnyDictionary;
+
+        Object.keys(data)
+            .forEach(key => {
+                if (isArray) {
+                    processedData[key] = this.convertObjectKeys(data[key], replacer);
+                    return;
+                }
+
+                processedData[replacer(key)] = this.convertObjectKeys(data[key], replacer);
+            });
+
+        return processedData;
     }
 }
