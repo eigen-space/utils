@@ -392,7 +392,7 @@ describe('ObjectUtils', () => {
         });
     });
 
-    describe('#filter', () => {
+    describe('#flatFilter', () => {
         const list = [
             { key: 'stop01', state: 'ACTIVE', type: 'FORWARD' },
             { key: 'stop02', state: 'ACTIVE', type: 'BACKWARD' },
@@ -454,5 +454,23 @@ describe('ObjectUtils', () => {
 
             expect(ObjectUtils.flatFilter(nestedList, nestedRules)).toEqual([]);
         });
+    });
+
+    describe('#convertObjectKeys', () => {
+        const item = {
+            // eslint-disable-next-line eigenspace-script/object-properties-carrying
+            underscore_field: {
+                PascalCase: [{
+                    camelCase: { 'kebab-case': 'value' }
+                }]
+            }
+        };
+
+        it('should apply replace function to all levels of fields', () => {
+            const result = ObjectUtils.convertObjectKeys(item, str => `${str}_postfix`);
+            const value = result.underscore_field_postfix.PascalCase_postfix[0].camelCase_postfix['kebab-case_postfix'];
+            expect(value).toBeDefined();
+        });
+
     });
 });
