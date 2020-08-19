@@ -38,4 +38,17 @@ export class AsyncUtils {
             return new Promise(r => resolver = r);
         };
     }
+
+    /**
+     * Iterates through array asynchronous.
+     *
+     * @param array - the array of data we want to iterate
+     * @param callback - function that will be invoked with each item of array
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    static async asyncForEach(array: any[], callback: (item: any, index: number) => Promise<any>): Promise<void> {
+        for (let index = 0; index < array.length; index++) {
+            await callback(array[index], index);
+        }
+    }
 }
