@@ -457,11 +457,12 @@ describe('ObjectUtils', () => {
     });
 
     describe('#convertObjectKeys', () => {
+        const date = new Date();
         const item = {
             // eslint-disable-next-line eigenspace-script/object-properties-carrying
             underscore_field: {
                 PascalCase: [{
-                    camelCase: { 'kebab-case': 'value' }
+                    camelCase: { 'kebab-case': date }
                 }]
             }
         };
@@ -469,7 +470,7 @@ describe('ObjectUtils', () => {
         it('should apply replace function to all levels of fields', () => {
             const result = ObjectUtils.convertObjectKeys(item, str => `${str}_postfix`);
             const value = result.underscore_field_postfix.PascalCase_postfix[0].camelCase_postfix['kebab-case_postfix'];
-            expect(value).toBeDefined();
+            expect(value).toEqual(date);
         });
 
     });
