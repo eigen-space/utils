@@ -120,7 +120,7 @@ export class ObjectUtils {
      * @returns Object with replaced fields.
      */
     static convertObjectKeys(data: DataType, replacer: (key: string) => string): DataType {
-        if (!Boolean(data) || typeof data !== 'object') {
+        if (!Boolean(data) || typeof data !== 'object' || !Object.keys(data).length) {
             return data;
         }
 
