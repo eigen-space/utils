@@ -46,6 +46,23 @@ describe('StringUtils', () => {
         });
     });
 
+    describe('#camelCaseToSentence', () => {
+
+        it('should convert camel case to sentence', () => {
+            expect(StringUtils.camelCaseToSentence('sortingRuleProgress')).toEqual('sorting rule progress');
+        });
+    });
+
+    describe('#doTemplate', () => {
+
+        it('should replace all template keys', () => {
+            const string = ':key :actual is :key :expected';
+            const props = { key: 'number', actual: '10', expected: '20' };
+
+            expect(StringUtils.doTemplate(string, props)).toEqual('number 10 is number 20');
+        });
+    });
+
     describe('#underscoreToCamelCase', () => {
 
         it('should convert upper case underscore string to lower camel case', () => {
