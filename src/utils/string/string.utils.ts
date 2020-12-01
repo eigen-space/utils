@@ -1,3 +1,5 @@
+import { AnyDictionary } from '@eigenspace/common-types';
+
 export class StringUtils {
 
     static convertFirstLetterToLowerCase(str: string): string {
@@ -58,6 +60,30 @@ export class StringUtils {
     static underscoreToPascalCase(str: string): string {
         const strInCamelCase = StringUtils.underscoreToCamelCase(str);
         return StringUtils.convertFirstLetterToUpperCase(strInCamelCase);
+    }
+
+    static camelCaseToSentence(str: string): string {
+        if (typeof str as unknown !== 'string') {
+            return str;
+        }
+
+        const hasNonLatinOrDigitChars = new RegExp('[^a-zA-Z0-9]+', 'g').test(str);
+        if (hasNonLatinOrDigitChars) {
+            return str;
+        }
+
+        if (!new RegExp('^[^a-z]*$', 'g').test(str)) {
+            return str.replace(new RegExp('([A-Z])', 'g'), ($1) => ` ${$1.toLowerCase()}`);
+        }
+
+        return str;
+    }
+
+    static doTemplate(content: string, props: AnyDictionary): string {
+        let result = content;
+        Object.keys(props)
+            .forEach(key => result = result.replace(new RegExp(`:${key}`, 'g'), props[key]));
+        return result;
     }
 
     static insertSubStr(str: string, start: number, end: number, subStr?: string): string {
