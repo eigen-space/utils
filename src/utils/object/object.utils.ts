@@ -83,7 +83,7 @@ export class ObjectUtils {
         return typeof obj === 'object' ? JSON.parse(JSON.stringify(obj)) : obj;
     }
 
-    static createObjectByPropertyString(objectProperty: String, value: unknown): AnyDictionary {
+    static createObjectByPropertyString(objectProperty: string, value: unknown): AnyDictionary {
         const properties = objectProperty.split('.');
         let createdObject = { [properties.pop() as string]: value };
 
@@ -92,6 +92,36 @@ export class ObjectUtils {
         }
 
         return createdObject;
+    }
+
+    /**
+     * Updates property value in object.
+     * Can handle dot separated path to nested property. For example, we have object:
+     * {
+     *     person: {
+     *         firstName: string;
+     *         secondName: string;
+     *     }
+     * }
+     * To update first name we can specify such path: `person.firstName`.
+     *
+     * Does not support arrays in field path.
+     *
+     * @param {object} object Object to interact with.
+     * @param {string} fieldPath Field that should be updated.
+     * @param {any} value Value to be set.
+     */
+    static updateValue<T = AnyDictionary>(object: T, fieldPath: string, value: unknown): T {
+        const hierarchyFields = fieldPath.split('.');
+        const valueField = hierarchyFields.pop();
+
+        let nestedObjectToChange: AnyDictionary = object;
+        hierarchyFields.forEach(nestedField => {
+            nestedObjectToChange = nestedObjectToChange[nestedField];
+        });
+        nestedObjectToChange[valueField!] = value;
+
+        return object as T;
     }
 
     static flatMatch(item: Dictionary<string>, rules: Dictionary<string>): boolean {
