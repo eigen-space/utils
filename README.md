@@ -22,12 +22,14 @@ Project should adhere to this structure:
     README.md
     <other root configuration files> - for example, jest.config.ts, .gitignore, ...                                             
 ```
+# Why do we have that dependencies?
+
+* `@eigenspace/common-types` - common types.
 
 # Why do we have that dev dependencies?
 
 * `@eigenspace/codestyle` - includes lint rules, config for typescript.
 * `@eigenspace/helper-scripts` - common scripts for dev. environment.
-* `@eigenspace/common-types` - common types.
 * `@types/*` - contains type definitions for specific library.
 * `jest` - testing framework to write unit specs (including snapshots).
 * `ts-jest` - it lets you use Jest to test projects written in TypeScript.
