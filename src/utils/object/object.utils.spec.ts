@@ -353,6 +353,38 @@ describe('ObjectUtils', () => {
         });
     });
 
+    describe('#updateValue', () => {
+
+        it('should update not nested value', () => {
+            const object = { field: 1 };
+            const updatedObject = ObjectUtils.updateValue(object, 'field', 5);
+            expect(updatedObject.field).toEqual(5);
+        });
+
+        it('should update nested value', () => {
+            const object = {
+                a: {
+                    b: { c: 1 }
+                }
+            };
+
+            const updatedObject = ObjectUtils.updateValue(object, 'a.b.c', 5);
+
+            expect(updatedObject.a.b.c).toEqual(5);
+        });
+
+        it('should do not change links in object', () => {
+            const nestedObject = { d: 1 };
+            const object = {
+                a: { b: 1, c: nestedObject }
+            };
+
+            const updatedObject = ObjectUtils.updateValue(object, 'a.b', 5);
+
+            expect(updatedObject.a.c).toBe(nestedObject);
+        });
+    });
+
     describe('#match', () => {
         const item = {
             id: 'route.stop-1234051',
