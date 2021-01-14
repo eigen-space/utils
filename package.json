@@ -10,7 +10,7 @@
         "lint:markdown": "node ./node_modules/@eigenspace/codestyle/scripts/markdown-lint.js",
         "lint": "yarn lint:code . && yarn lint:markdown",
         "test": "jest",
-        "deploy:publish": "node node_modules/@eigenspace/helper-scripts/scripts/ci/publish",
+        "deploy:publish": "npx -p @eigenspace/package-publisher@0.0.3 publish",
         "hooks:pre-push": "yarn lint && yarn test",
         "script:update-deps": "node node_modules/@eigenspace/helper-scripts/scripts/project/update-deps"
     },
