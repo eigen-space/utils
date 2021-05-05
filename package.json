@@ -3,7 +3,7 @@
     "version": "1.2.47",
     "private": false,
     "scripts": {
-        "build": "webpack --config config/webpack/webpack.config.package.js --progress && yarn bundle-dts",
+        "build": "webpack --config webpack.config.package.js --progress && yarn bundle-dts",
         "bundle-dts": "node node_modules/@eigenspace/helper-scripts/scripts/project/bundle-dts",
         "compile": "tsc",
         "lint:code": "eslint --ext .js,.jsx,.ts,.tsx",
