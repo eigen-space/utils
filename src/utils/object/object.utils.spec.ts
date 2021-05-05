@@ -504,6 +504,28 @@ describe('ObjectUtils', () => {
             const value = result.underscore_field_postfix.PascalCase_postfix[0].camelCase_postfix['kebab-case_postfix'];
             expect(value).toEqual(date);
         });
+    });
 
+    describe('#filterBasicTypes', () => {
+
+        it('should filter null value', () => {
+            const obj = { field: null };
+            expect(ObjectUtils.filterBasicTypes(obj)).toEqual({});
+        });
+
+        it('should filter NaN value', () => {
+            const obj = { field: NaN };
+            expect(ObjectUtils.filterBasicTypes(obj)).toEqual({});
+        });
+
+        it('should filter object value', () => {
+            const obj = { field: {} };
+            expect(ObjectUtils.filterBasicTypes(obj)).toEqual({});
+        });
+
+        it('should filter wrong date value', () => {
+            const obj = { field: new Date('wrong date') };
+            expect(ObjectUtils.filterBasicTypes(obj)).toEqual({});
+        });
     });
 });

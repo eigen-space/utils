@@ -169,4 +169,23 @@ export class ObjectUtils {
 
         return processedData;
     }
+
+    static filterBasicTypes<R extends AnyDictionary>(obj: object): R {
+        const result = {} as AnyDictionary;
+        const entries = Object.entries(obj);
+
+        entries.forEach(([key, value]) => {
+            if (value == null
+                || typeof value === 'number' && isNaN(value)
+                // eslint-disable-next-line eigenspace-script/conditions
+                || typeof value === 'object' && !(value instanceof Date)
+                || value instanceof Date && isNaN(value.getTime())) {
+                return;
+            }
+
+            result[key] = value;
+        });
+
+        return result as R;
+    }
 }

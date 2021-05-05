@@ -3,6 +3,7 @@
     "compilerOptions": {
         "sourceMap": false,
         "moduleResolution": "node",
+        "esModuleInterop": true,
         "outDir": "dist/types",
         "typeRoots": [
             "node_modules/@types"
