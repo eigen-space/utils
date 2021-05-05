@@ -1,3 +1,6 @@
 out-tsc/**/*
 dist/**/*
 coverage/**/*
+.eslintrc.js
+jest.config.js
+webpack.config.package.js

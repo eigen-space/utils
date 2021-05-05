@@ -25,6 +25,9 @@ Project should adhere to this structure:
 # Why do we have that dependencies?
 
 * `@eigenspace/common-types` - common types.
+* `lodash.camelcase` - to convert any format to camel case.
+* `lodash.kebabcase` - to convert any format to kebab case.
+* `lodash.snakecase` - to convert any format to snake case.
 
 # Why do we have that dev dependencies?
 

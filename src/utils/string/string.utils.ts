@@ -1,4 +1,7 @@
 import { AnyDictionary } from '@eigenspace/common-types';
+import snakeCase from 'lodash.snakecase';
+import camelCase from 'lodash.camelcase';
+import kebabCase from 'lodash.kebabcase';
 
 export class StringUtils {
 
@@ -10,56 +13,29 @@ export class StringUtils {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    static camelCaseToUnderscore(str: string): string {
-        if (typeof str as unknown !== 'string') {
-            return str;
-        }
-
-        // Do nothing for non latin or digit characters
-        const hasNonLatinOrDigitChars = new RegExp('[^a-zA-Z0-9]+', 'g').test(str);
-        if (hasNonLatinOrDigitChars) {
-            return str;
-        }
-
-        if (!(new RegExp('^[^a-z]*$', 'g')).test(str)) {
-            return str.replace(new RegExp('([A-Z])', 'g'), ($1) => `_${$1.toLowerCase()}`);
-        }
-        return str;
+    static toSnakeCase(str: string): string {
+        return snakeCase(str);
     }
 
-    static camelCaseToUpperUnderscore(str: string): string {
-        return StringUtils.camelCaseToUnderscore(str).toUpperCase();
+    static toUpperSnakeCase(str: string): string {
+        return StringUtils.toSnakeCase(str).toUpperCase();
     }
 
-    static underscoreToCamelCase(str: string, shouldConvertUpperCase = true): string {
-        const safeStr = str || '';
-
-        const isSnakeCase = safeStr.includes('_');
-        const shouldConvert = isSnakeCase || shouldConvertUpperCase && new RegExp('^[A-Z0-9]+$', 'g').test(safeStr);
-        return shouldConvert ? safeStr.toLocaleLowerCase()
-            .replace(new RegExp('_[a-z]', 'g'), StringUtils.uppercaseSecondLetter) : safeStr;
+    static toCamelCase(str: string): string {
+        return camelCase(str);
     }
 
-    static kebabCaseToCamelCase(str: string, shouldConvertUpperCase = true): string {
-        const safeStr = str || '';
+    static toKebabCase(str: string): string {
+        return kebabCase(str);
+    }
 
-        const isKebabCase = safeStr.includes('-');
-        const shouldConvert = isKebabCase || shouldConvertUpperCase && new RegExp('^[A-Z0-9]+$', 'g').test(safeStr);
-        return shouldConvert ? safeStr.toLocaleLowerCase()
-            .replace(new RegExp('-[a-z]', 'g'), StringUtils.uppercaseSecondLetter) : safeStr;
+    static toPascalCase(str: string): string {
+        const strInCamelCase = StringUtils.toCamelCase(str);
+        return StringUtils.convertFirstLetterToUpperCase(strInCamelCase);
     }
 
     static pointSeparatedToCamelCase(str: string): string {
         return str.replace(new RegExp('(\\.[a-zA-Z])', 'g'), StringUtils.uppercaseSecondLetter);
-    }
-
-    static underscoreToKebabCase(str: string): string {
-        return (str || '').toLowerCase().replace(new RegExp('_', 'g'), '-');
-    }
-
-    static underscoreToPascalCase(str: string): string {
-        const strInCamelCase = StringUtils.underscoreToCamelCase(str);
-        return StringUtils.convertFirstLetterToUpperCase(strInCamelCase);
     }
 
     static camelCaseToSentence(str: string): string {
